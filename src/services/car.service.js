@@ -8,10 +8,9 @@ async function getAllCar() {
 async function getCar(param, filterBy) {
   let filter = {};
   if (filterBy == FilterBy.Id) filter._id = param;
-  if (filterBy == FilterBy.Email) filter.email = param;
   if (!filterBy) filter = param;
   let car = await carController.readOne(filter);
-  if (!car) throw "user is not exist";
+  if (!car) throw "car is not exist";
    return car
 }
 
@@ -49,6 +48,9 @@ async function validation(data) {
     if (!data.horsepower) errors.push("horsepower is not exist");
     return errors;
   }
+
+
+
   module.exports = {
     getAllCar,
     getCar,

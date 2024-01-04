@@ -23,11 +23,15 @@ carRouter.get('/:carId', async (req, res) => {
 
 carRouter.post('/', async (req, res) => {
     try {
-        const newCar = await userService.addNewCar(req.body);
+        const newCar = await carService.addNewCar(req.body);
         res.send(newCar);
       } catch (err) {
         res.status(400).send(err);
       }
     });
+
+carRouter.post('/', async (req, res) => {
+    
+})
 
 module.exports = carRouter
